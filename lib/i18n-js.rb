@@ -24,15 +24,19 @@ module SimplesIdeias
       Rails.configuration.respond_to?(:assets) && Rails.configuration.assets.enabled
     end
 
+    def uses_public_assets?
+      Rails.env != "development"
+    end
+
     def config_file
       Rails.root.join("config/i18n-js.yml")
     end
 
     def export_dir
-      if has_asset_pipeline?
+      if uses_public_assets?
         "app/assets/javascripts/i18n"
       else
-        "public/javascripts"
+        "public/assets"
       end
     end
 
