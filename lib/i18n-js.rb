@@ -34,7 +34,7 @@ module SimplesIdeias
 
     def export_dir
       if uses_public_assets?
-        "public/assets"
+        "public/assets/i18n"
       else
         "app/assets/javascripts/i18n"
       end
